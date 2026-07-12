@@ -1,3 +1,7 @@
+output "role_definitions_id" {
+  description = "Map of id values across all role_definitions, keyed the same as var.role_definitions"
+  value       = { for k, v in azurerm_role_definition.role_definitions : k => v.id }
+}
 output "role_definitions_assignable_scopes" {
   description = "Map of assignable_scopes values across all role_definitions, keyed the same as var.role_definitions"
   value       = { for k, v in azurerm_role_definition.role_definitions : k => v.assignable_scopes }
