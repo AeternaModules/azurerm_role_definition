@@ -8,7 +8,7 @@ resource "azurerm_role_definition" "role_definitions" {
   role_definition_id = each.value.role_definition_id
 
   dynamic "permissions" {
-    for_each = each.value.permissions != null ? [each.value.permissions] : []
+    for_each = each.value.permissions != null ? each.value.permissions : []
     content {
       actions          = permissions.value.actions
       data_actions     = permissions.value.data_actions
